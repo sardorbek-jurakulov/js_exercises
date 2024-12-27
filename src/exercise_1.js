@@ -126,7 +126,48 @@ function formatPhoneNumber(phoneNumber) {
  *
  */
 function changeTextCase(text, caseName) {
-  // Your code here
+  let textAsArray = text.split(" ");
+  let textAsArrayLength = textAsArray.length;
+
+  if (text === undefined) {
+    return "A value must be entered for the text parameter!";
+  }
+
+  if (caseName === undefined) {
+    return "A value must be entered for the Text parameter!";
+  }
+
+  if (caseName === 'camel') {
+    textAsArray[0] = textAsArray[0].charAt(0).toLowerCase() + textAsArray[0].slice(1, textAsArray[0].length);
+    for (let i = 1; i < textAsArrayLength; i++ ) {
+      textAsArray[i] = textAsArray[i].charAt(0).toUpperCase() + textAsArray[i].slice(1, textAsArray[i].length);
+    }
+    text = textAsArray.join('');
+    return text;
+  } else if (caseName === 'kebab') {
+    textAsArray[0] = textAsArray[0].charAt(0).toLowerCase() + textAsArray[0].slice(1, textAsArray[0].length);
+    for (let i = 1; i < textAsArrayLength; i++ ) {
+      textAsArray[i] = textAsArray[i].charAt(0).toLowerCase() + textAsArray[i].slice(1, textAsArray[i].length);
+    }
+    text = textAsArray.join('-');
+    return text;
+  } else if (caseName === 'snake') {
+    textAsArray[0] = textAsArray[0].charAt(0).toLowerCase() + textAsArray[0].slice(1, textAsArray[0].length);
+    for (let i = 1; i < textAsArrayLength; i++ ) {
+      textAsArray[i] = textAsArray[i].charAt(0).toLowerCase() + textAsArray[i].slice(1, textAsArray[i].length);
+    }
+    text = textAsArray.join('_');
+    return text;
+  } else if (caseName === 'pascal') {
+    textAsArray[0] = textAsArray[0].charAt(0).toUpperCase() + textAsArray[0].slice(1, textAsArray[0].length);
+    for (let i = 1; i < textAsArrayLength; i++ ) {
+      textAsArray[i] = textAsArray[i].charAt(0).toUpperCase() + textAsArray[i].slice(1, textAsArray[i].length);
+    }
+    text = textAsArray.join('');
+    return text;
+  } else {
+    return "The value of the caseName parameter can only be 'camel', 'kebab', 'snake', or 'pascal'.";
+  }
 }
 
 /**
