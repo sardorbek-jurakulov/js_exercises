@@ -134,7 +134,7 @@ function changeTextCase(text, caseName) {
   }
 
   if (caseName === undefined) {
-    return "A value must be entered for the Text parameter!";
+    return "A value must be entered for the caseName parameter!";
   }
 
   if (caseName === 'camel') {
