@@ -184,7 +184,12 @@ function changeTextCase(text, caseName) {
  * 'Winnie-the-Puff (also known as Edward Bear, Puff Bear or simply Puff) is a fictional anthropomorphic teddy bear created by English author A. A. Milne and English illustrator E. H. Shepard. Winnie-the-Puff first appeared by name in a children's story commissioned by London's Evening News for Christmas Eve 1925. The character is inspired by a stuffed toy that Milne had bought for his son Christopher Robin in Harrods department store, and a bear they had viewed at London Zoo.'
  */
 function replaceWordInText(text, word, replacement) {
-  // Your code here
+  if (text === undefined || word === undefined || replacement ===undefined) {
+    return "The values ​​of the text, word and replacement parameters must be provided..."
+  }
+
+  text = text.replaceAll(word, replacement);
+  return text;
 }
 
 /**
@@ -197,7 +202,20 @@ function replaceWordInText(text, word, replacement) {
  * extractPriceFromText('There were no apples left in the shop'); => 'No matching price was found'
  */
 function extractPriceFromText(text) {
-  // Your code here
+  if (text === undefined) {
+    return "For the function to work properly, you must provide a value for the text parameter..."
+  }
+
+  let priceAsNumber = undefined;
+  let textAsArray = text.split(" ");
+  let textAsArrayLength = textAsArray.length;
+  for (let i = 0; i < textAsArrayLength; i++) {
+    if (textAsArray[i].charAt(0) === '$' ) {
+      priceAsNumber = textAsArray[i].slice(1, textAsArray[i].length);
+      break;
+    }
+  }
+  return Number(priceAsNumber) || 'No matching price was found';
 }
 
 module.exports = {
