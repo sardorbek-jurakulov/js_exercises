@@ -10,7 +10,10 @@
  * See image here: https://edabit-challenges.s3.amazonaws.com/matchstick_houses.png
  * */
 function countMatchsticksInHouses(step) {
-  // Write your code here
+  if (step === undefined || step < 0 || typeof step != 'number') {
+    return "For this function to work correctly, the value of the step property must be a natural number..."
+  }
+  return (step*6)-(step-1);
 }
 
  /* The time has a format: hours:minutes. Both hours and minutes have two digits, like 09:00. */
